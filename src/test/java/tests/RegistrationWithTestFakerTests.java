@@ -12,8 +12,8 @@ import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static enums.ResultTableEnums.*;
-import static javax.swing.text.html.HTML.Tag.ADDRESS;
-import static org.openqa.selenium.devtools.v85.emulation.Emulation.SetEmitTouchEventsForMouseConfiguration.MOBILE;
+import static enums.ResultTableEnums.ADDRESS;
+import static enums.ResultTableEnums.MOBILE;
 
 
 public class RegistrationWithTestFakerTests extends TestBase {
@@ -38,12 +38,13 @@ public class RegistrationWithTestFakerTests extends TestBase {
               .setState(testData.state)
               .setCity(testData.city)
               .clickSubmitButton()
+              .checkResultTitle()
               .checkResultTable(Map.of(
                               STUDENT_NAME, testData.firstName + " " + testData.lastName,
                               STUDENT_EMAIL, testData.email,
                               GENDER, testData.gender,
                               MOBILE, testData.userNumber,
-                              DATE_OF_BIRTH, testData.day + " " + testData.month + "," + testData.year,
+                      DATE_OF_BIRTH, testData.day + " " + testData.month + ", " + testData.year,
                               SUBJECTS, testData.subject,
                               ADDRESS, testData.address,
                               PICTURE, testData.uploadFile,

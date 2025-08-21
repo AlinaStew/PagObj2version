@@ -28,7 +28,8 @@ public class RegistrationPage {
             cityInput = $("#city"),
             stateCityWrapper = $("#stateCity-wrapper"),
             submitButton = $("#submit"),
-            tableResponsive = $(".table-responsive");
+            tableResponsive = $(".table-responsive"),
+            studentRegistrationFormTitle = $(".practice-form-wrapper");;
     ResultTableComponent resultTableComponent = new ResultTableComponent();
 
     CalendarComponent calendarComponent = new CalendarComponent();
@@ -38,7 +39,6 @@ public class RegistrationPage {
         $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
-
         return this;
     }
 
@@ -47,51 +47,61 @@ public class RegistrationPage {
 
         return this;
     }
+
     public RegistrationPage setLastName(String value) {
         lastNameInput.setValue(value);
 
         return this;
     }
+
     public RegistrationPage setEmail(String value) {
         userEmailInput.setValue(value);
 
         return this;
     }
+
     public RegistrationPage setGenter(String value) {
         genterWrapper.$(byText(value)).click();
 
         return this;
     }
+
     public RegistrationPage setUserNumber(String value) {
         userNumberInput.setValue(value);
 
         return this;
     }
+
     public RegistrationPage setDateOfBirth(String day, String month, String year) {
        calendarComponent.setDate(day, month, year);
         calendarInput.click();
 
         return this;
     }
+
     public RegistrationPage setSubject(String value) {
         subjectInput.setValue(value).pressEnter();
 
         return this;
     }
+
     public RegistrationPage setHobbies(String value) {
         hobbiesWrapper.$(byText(value)).click();
 
         return this;
     }
+
     public RegistrationPage setPicture(String fileName) {
         uploadPicture.uploadFromClasspath(fileName);
         return this;
     }
+
     public RegistrationPage setAddress(String value) {
         addressInput.setValue(value);
 
         return this;
     }
+
     public RegistrationPage setState(String value) {
         stateInput.click();
         stateCityWrapper.$(byText(value)).click();
@@ -103,14 +113,21 @@ public class RegistrationPage {
         stateCityWrapper.$(byText(value)).click();
         return this;
     }
+
     public RegistrationPage clickSubmitButton() {
         submitButton.click();
         return this;
     }
+
     public RegistrationPage checkResult(String key, String value) {
         tableResponsive.$(byText(key)).parent()
                 .shouldHave(text(value));
 
+        return this;
+    }
+
+    public RegistrationPage checkResultTitle() {
+        resultTableComponent.checkTitle();
         return this;
     }
 
