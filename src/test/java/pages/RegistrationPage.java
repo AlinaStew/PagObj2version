@@ -2,7 +2,11 @@ package pages;
 
 import com.codeborne.selenide.ClickOptions;
 import com.codeborne.selenide.SelenideElement;
+import enums.ResultTableEnums;
 import pages.components.CalendarComponent;
+import pages.components.ResultTableComponent;
+
+import java.util.Map;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
@@ -25,6 +29,7 @@ public class RegistrationPage {
             stateCityWrapper = $("#stateCity-wrapper"),
             submitButton = $("#submit"),
             tableResponsive = $(".table-responsive");
+    ResultTableComponent resultTableComponent = new ResultTableComponent();
 
     CalendarComponent calendarComponent = new CalendarComponent();
 
@@ -106,6 +111,11 @@ public class RegistrationPage {
         tableResponsive.$(byText(key)).parent()
                 .shouldHave(text(value));
 
+        return this;
+    }
+
+    public RegistrationPage checkResultTable(Map<ResultTableEnums, String> results) {
+        results.forEach((key, value) -> resultTableComponent.checkTable(key, value));
         return this;
     }
 }
