@@ -44,7 +44,7 @@ public class RegistrationWithTestFakerTests extends TestBase {
                               STUDENT_EMAIL, testData.email,
                               GENDER, testData.gender,
                               MOBILE, testData.userNumber,
-                      DATE_OF_BIRTH, testData.day + " " + testData.month + ", " + testData.year,
+                      DATE_OF_BIRTH, testData.day + " " + testData.month + "," + testData.year,
                               SUBJECTS, testData.subject,
                               ADDRESS, testData.address,
                               PICTURE, testData.uploadFile,
