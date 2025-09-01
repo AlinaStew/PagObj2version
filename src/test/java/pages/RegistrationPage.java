@@ -120,7 +120,6 @@ public class RegistrationPage {
     public RegistrationPage checkResult(String key, String value) {
         tableResponsive.$(byText(key)).parent()
                 .shouldHave(text(value));
-        multiply(4, 5);
         return this;
     }
 
@@ -132,9 +131,5 @@ public class RegistrationPage {
     public RegistrationPage checkResultTable(Map<ResultTableEnums, String> results) {
         results.forEach((key, value) -> resultTableComponent.checkTable(key, value));
         return this;
-    }
-
-    private int multiply(int value1, int value2) {
-        return value1 * value2;
     }
 }
