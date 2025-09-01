@@ -1,6 +1,5 @@
 package pages;
 
-import com.codeborne.selenide.ClickOptions;
 import com.codeborne.selenide.SelenideElement;
 import enums.ResultTableEnums;
 import pages.components.CalendarComponent;
@@ -8,13 +7,12 @@ import pages.components.ResultTableComponent;
 
 import java.util.Map;
 
-import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 public class RegistrationPage {
-    private SelenideElement firstNameInput = $("#firstName"),
+    private final SelenideElement firstNameInput = $("#firstName"),
             lastNameInput = $("#lastName"),
             userEmailInput = $("#userEmail"),
             genterWrapper = $("#genterWrapper"),
@@ -122,7 +120,6 @@ public class RegistrationPage {
     public RegistrationPage checkResult(String key, String value) {
         tableResponsive.$(byText(key)).parent()
                 .shouldHave(text(value));
-
         return this;
     }
 
