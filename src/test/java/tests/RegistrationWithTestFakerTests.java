@@ -1,19 +1,12 @@
 package tests;
 
-import com.github.javafaker.Faker;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 import utils.TestData;
 
-import java.util.Locale;
 import java.util.Map;
 
-import static com.codeborne.selenide.Condition.appear;
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$;
 import static enums.ResultTableEnums.*;
-import static enums.ResultTableEnums.ADDRESS;
-import static enums.ResultTableEnums.MOBILE;
 
 
 public class RegistrationWithTestFakerTests extends TestBase {
@@ -50,6 +43,5 @@ public class RegistrationWithTestFakerTests extends TestBase {
                               PICTURE, testData.uploadFile,
                               STATE_AND_CITY, testData.state + " " + testData.city)
               );
-
     }
 }

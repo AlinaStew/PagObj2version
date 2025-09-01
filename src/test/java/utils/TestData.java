@@ -22,55 +22,55 @@ public class TestData {
         state = getRandomState(),
         city = getRandomCity(state);
 
-public static String getRandomFirstName() {
-    return faker.name().firstName();
-}
-
-    public static String getRandomLastName() {
-    return faker.name().lastName();
+    public String getRandomFirstName() {
+        return faker.name().firstName();
     }
 
-    public static String getRandomEmail() {
-    return faker.internet().emailAddress();
+    public String getRandomLastName() {
+        return faker.name().lastName();
     }
 
-    public static String getRandomGender() {
+    public String getRandomEmail() {
+        return faker.internet().emailAddress();
+    }
+
+    public String getRandomGender() {
         String[] genders = {"Male", "Female", "Other"};
         return faker.options().option(genders);
     }
 
-    public static String getRandomUserNumber() {
+    public String getRandomUserNumber() {
         return faker.number().digits(10);
     }
 
-    public static String getRandomDay() {
+    public String getRandomDay() {
         return String.valueOf(faker.number().numberBetween(1, 28));
     }
 
-    public static String getRandomMonth() {
+    public String getRandomMonth() {
         String[] month = {"December", "January", "February", "March",
                 "April", "May", "June", "July",
                 "August", "September", "October", "November"};
         return faker.options().option(month);
     }
 
-    public static String getRandomYear() {
+    public String getRandomYear() {
         return String.valueOf(faker.number().numberBetween(1950, 2012));
     }
 
-    public static String getRandomSubject() {
+    public String getRandomSubject() {
         return faker.options().option("English", "Maths", "Arts", "Hindi", "History");
     }
 
-    public static String getRandomHobbies() {
+    public String getRandomHobbies() {
         return faker.options().option("Sports", "Reading", "Music");
     }
 
-    public static String getRandomState() {
+    public String getRandomState() {
         return faker.options().option("NCR", "Uttar Pradesh", "Haryana", "Rajasthan");
     }
 
-    public static String getRandomCity(String state) {
+    public String getRandomCity(String state) {
         String city = "";
         if (state.equals("NCR")) city = faker.options().option("Delhi", "Gurgaon", "Noida");
         if (state.equals("Uttar Pradesh")) city = faker.options().option("Agra", "Lucknow", "Merrut");
@@ -79,12 +79,11 @@ public static String getRandomFirstName() {
         return city;
     }
 
-    public static String getRandomAddress() {
+    public String getRandomAddress() {
         return faker.address().fullAddress();
     }
 
-    public static String getRandomFile() {
+    public String getRandomFile() {
         return faker.options().option("pic1.png", "pic2.png");
     }
-
 }
