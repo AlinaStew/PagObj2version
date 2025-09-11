@@ -18,6 +18,19 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter:5.9.2'
 }
 
-test {
+tasks.withType(Test) {
     useJUnitPlatform()
+
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
+    }
+}
+
+tasks.register('simple_test', Test) {
+    useJUnitPlatform {
+        includeTags("simple")
+    }
 }
